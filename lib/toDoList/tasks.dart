@@ -1,10 +1,43 @@
 import 'package:flutter/material.dart';
+
 class Tasks extends StatefulWidget {
   @override
   _TasksState createState() => _TasksState();
 }
 
 class _TasksState extends State<Tasks> {
+
+  void _settingModalBottomSheet(context){
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc){
+          return Container(
+            child:  Container(
+                 margin: EdgeInsets.symmetric(horizontal: 5, vertical: 7),
+                        child: ClipRRect (
+                         child: TextField(
+                         decoration: InputDecoration(
+                         filled: true,
+                         fillColor: Colors.white,
+                         border: InputBorder.none,
+                          suffixIcon: Container(
+                          padding: EdgeInsets.all(10),
+                           child: Icon(
+                            Icons.arrow_upward,
+                             color: Colors.blue,
+                             size: 30,
+                           ),
+                      ),
+                       hintText: "Add a task"
+          ),
+          ),
+          ),
+          ),
+          );
+        }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -109,7 +142,9 @@ class _TasksState extends State<Tasks> {
   Widget _button(){
     return FloatingActionButton(
         backgroundColor: Color.fromRGBO(230,233,229,1),
-      onPressed: (){},
+      onPressed: (){
+        _settingModalBottomSheet(context);
+      },
       child: Icon(
         Icons.add,
         color: Color.fromRGBO(94,113,192, 1),
