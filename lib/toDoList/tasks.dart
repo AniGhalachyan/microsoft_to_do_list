@@ -7,36 +7,36 @@ class Tasks extends StatefulWidget {
 
 class _TasksState extends State<Tasks> {
 
-  void _settingModalBottomSheet(context){
-    showModalBottomSheet(
-        context: context,
-        builder: (BuildContext bc){
-          return Container(
-            child:  Container(
-                 margin: EdgeInsets.symmetric(horizontal: 5, vertical: 7),
-                        child: ClipRRect (
-                         child: TextField(
-                         decoration: InputDecoration(
-                         filled: true,
-                         fillColor: Colors.white,
-                         border: InputBorder.none,
-                          suffixIcon: Container(
-                          padding: EdgeInsets.all(10),
-                           child: Icon(
-                            Icons.arrow_upward,
-                             color: Colors.blue,
-                             size: 30,
-                           ),
-                      ),
-                       hintText: "Add a task"
-          ),
-          ),
-          ),
-          ),
-          );
-        }
-    );
-  }
+  // void _settingModalBottomSheet(context){
+  //   showModalBottomSheet(
+  //       context: context,
+  //       builder: (BuildContext bc){
+  //         return Container(
+  //           child:  Container(
+  //                margin: EdgeInsets.symmetric(horizontal: 5, vertical: 7),
+  //                       child: ClipRRect (
+  //                        child: TextField(
+  //                        decoration: InputDecoration(
+  //                        filled: true,
+  //                        fillColor: Colors.white,
+  //                        border: InputBorder.none,
+  //                         suffixIcon: Container(
+  //                         padding: EdgeInsets.all(10),
+  //                          child: Icon(
+  //                           Icons.arrow_upward,
+  //                            color: Colors.blue,
+  //                            size: 30,
+  //                          ),
+  //                     ),
+  //                      hintText: "Add a task"
+  //         ),
+  //         ),
+  //         ),
+  //         ),
+  //         );
+  //       }
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -143,7 +143,7 @@ class _TasksState extends State<Tasks> {
     return FloatingActionButton(
         backgroundColor: Color.fromRGBO(230,233,229,1),
       onPressed: (){
-        _settingModalBottomSheet(context);
+        // _settingModalBottomSheet(context);
       },
       child: Icon(
         Icons.add,
