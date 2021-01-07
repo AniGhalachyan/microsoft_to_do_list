@@ -39,7 +39,7 @@ Widget _appBar(){
           children: <Widget> [
             CircleAvatar(
               radius: 20,
-              backgroundImage: NetworkImage(avatarUrl[0]),
+              // backgroundImage: NetworkImage(avatarUrl[0]),
             ),
             GestureDetector(
               onTap: () {

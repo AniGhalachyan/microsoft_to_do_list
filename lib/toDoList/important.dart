@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:microsoft_to_do_list/addTasks/new_tasks.dart';
 class Important extends StatefulWidget {
   @override
   _ImportantState createState() => _ImportantState();
 }
 
 class _ImportantState extends State<Important> {
+  void _startAddNewTasks(BuildContext ctx) {
+    showModalBottomSheet(
+      context: ctx,
+      builder: (_) {
+        return GestureDetector(
+          onTap: () {},
+          child: NewTasks(),
+          behavior: HitTestBehavior.opaque,
+        );
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -112,7 +125,7 @@ class _ImportantState extends State<Important> {
     return FloatingActionButton(
       backgroundColor: Color.fromRGBO(173,57,94,1),
       onPressed: (){
-        
+        _startAddNewTasks(context);
       },
       child: Icon(
         Icons.add,

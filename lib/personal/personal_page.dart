@@ -33,7 +33,7 @@ class _PersonalPageState extends State<PersonalPage> {
           children: [
            CircleAvatar(
              radius: 35,
-             backgroundImage:NetworkImage(avatarUrl[0]) ,
+             // backgroundImage:NetworkImage(avatarUrl[0]) ,
            ),
 
             Spacer(),

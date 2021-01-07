@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:microsoft_to_do_list/addTasks/new_tasks.dart';
 import 'package:microsoft_to_do_list/toDoList/singlePage/singlePageOfMyDay.dart';
 import 'package:intl/intl.dart';
 
@@ -8,6 +9,19 @@ class MyDay extends StatefulWidget {
 }
 
 class _MyDayState extends State<MyDay> {
+
+  void _startAddNewTasks(BuildContext ctx) {
+    showModalBottomSheet(
+      context: ctx,
+      builder: (_) {
+        return GestureDetector(
+          onTap: () {},
+          child: NewTasks(),
+          behavior: HitTestBehavior.opaque,
+        );
+      },
+    );
+  }
   DateTime now = DateTime.now();
   @override
   Widget build(BuildContext context) {
@@ -153,9 +167,13 @@ class _MyDayState extends State<MyDay> {
                                  size: 25, ),
                              onPressed: () {}),
                        ],
-                     )) ,
+                     ),
+
+                 ) ,
                ),
+
             ],
+
         ),
     );
   }
@@ -164,13 +182,16 @@ class _MyDayState extends State<MyDay> {
   Widget _button(){
     return FloatingActionButton(
       backgroundColor: Color.fromRGBO(140,51,52,1),
-      onPressed: () {},
+      onPressed: () {
+        _startAddNewTasks(context);
+      },
       child: Icon(
           Icons.add,
           color: Colors.white
       ),
 
     );
+
   }
   }
 

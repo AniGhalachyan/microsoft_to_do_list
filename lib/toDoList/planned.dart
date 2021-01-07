@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:microsoft_to_do_list/addTasks/new_tasks.dart';
 class Planned extends StatefulWidget {
 
 
@@ -11,6 +12,18 @@ class Planned extends StatefulWidget {
 }
 
 class _PlannedState extends State<Planned> {
+  void _startAddNewTasks(BuildContext ctx) {
+    showModalBottomSheet(
+      context: ctx,
+      builder: (_) {
+        return GestureDetector(
+          onTap: () {},
+          child: NewTasks(),
+          behavior: HitTestBehavior.opaque,
+        );
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -146,7 +159,9 @@ class _PlannedState extends State<Planned> {
   Widget _button(){
     return FloatingActionButton(
       backgroundColor: Color.fromRGBO(23,111,107,1),
-        onPressed: (){},
+        onPressed: (){
+        _startAddNewTasks(context);
+        },
       child: Icon(
         Icons.add,
         color: Colors.white,
