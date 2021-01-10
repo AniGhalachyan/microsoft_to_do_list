@@ -53,6 +53,7 @@ flutter:
     - lib/img/3.jpg
     - lib/img/4.jpg
     - lib/img/5.jpg
+    - lib/img/6.jpg
 
 #   assets:
 #     - assets/images/nature1.jpg

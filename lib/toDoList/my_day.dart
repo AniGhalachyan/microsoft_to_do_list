@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:microsoft_to_do_list/addTasks/new_tasks.dart';
+import 'package:microsoft_to_do_list/suggestion/suggestions.dart';
 import 'package:microsoft_to_do_list/toDoList/singlePage/singlePageOfMyDay.dart';
 import 'package:intl/intl.dart';
 
@@ -22,6 +23,19 @@ class _MyDayState extends State<MyDay> {
       },
     );
   }
+  void _suggestion(BuildContext ctx) {
+    showModalBottomSheet(
+      context: ctx,
+      builder: (_) {
+        return GestureDetector(
+          onTap: () {},
+          child: Suggestions(),
+          behavior: HitTestBehavior.opaque,
+        );
+      },
+    );
+  }
+
   DateTime now = DateTime.now();
   @override
   Widget build(BuildContext context) {
@@ -67,14 +81,79 @@ class _MyDayState extends State<MyDay> {
                     ),
 
                     Spacer(),
-                    IconButton(
+                    PopupMenuButton(
                         icon: Icon(
                           Icons.more_vert,
                           color: Colors.white,
-                          size: 30,
                         ),
-                        onPressed: () {
-                        }
+                        itemBuilder: (context)=>[
+                          PopupMenuItem(
+                            child: Row(
+                              children: <Widget> [
+                                Icon(
+                                    Icons.sort,
+                                    color: Colors.grey.shade700
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  "Sort by ",
+                                  style: TextStyle(
+                                      color: Colors.grey.shade700
+                                  ),
+                                ),
+
+                              ],
+                            ),
+
+                          ),
+                          PopupMenuItem(
+                            child: Row(
+                              children: <Widget> [
+                                Icon(
+                                    Icons.add_to_home_screen_sharp,
+                                    color: Colors.grey.shade700
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  "Add shortcut to home screen",
+                                  style: TextStyle(
+                                      color: Colors.grey.shade700
+                                  ),
+                                ),
+
+                              ],
+                            ),
+
+                          ),
+                          PopupMenuItem(
+                            child: Row(
+                              children: <Widget> [
+                                Icon(
+                                    Icons.crop_3_2,
+                                    color: Colors.grey.shade700
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  "Change theme",
+                                  style: TextStyle(
+                                      color: Colors.grey.shade700
+                                  ),
+                                ),
+
+                              ],
+                            ),
+
+                          ),
+
+
+
+                        ]
                     )
                   ],
                 ),
@@ -170,9 +249,50 @@ class _MyDayState extends State<MyDay> {
                      ),
 
                  ) ,
+
                ),
+              Container(
+                // padding: EdgeInsets.only(left: 50),
+                margin: EdgeInsets.only(top: 680, left: 140),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(60),
+                  color: Color.fromRGBO(140,51,52,1),
+                ),
+                height: 40,
+                width: 160,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.only(left: 5),
+                      child:IconButton(
+                        onPressed: (){
+                          _suggestion(context);
+                        },
+                        icon: Icon(
+                          Icons.lightbulb_outline,
+                          size: 25,
+                          color: Colors.white,
+                        ),
+                      ) ,
+                    ),
+                      Container(
+                        child:  Text(
+                          "Suggestions",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+
+              )
 
             ],
+
 
         ),
     );

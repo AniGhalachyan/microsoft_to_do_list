@@ -55,14 +55,79 @@ class _TasksState extends State<Tasks> {
             ),
 
             Spacer(),
-            IconButton(
+            PopupMenuButton(
                 icon: Icon(
                   Icons.more_vert,
                   color: Color.fromRGBO(230,233,229,1),
-                  size: 30,
                 ),
-                onPressed: () {
-                }
+                itemBuilder: (context)=>[
+                  PopupMenuItem(
+                    child: Row(
+                      children: <Widget> [
+                        Icon(
+                            Icons.sort,
+                            color: Colors.grey.shade700
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Sort by ",
+                          style: TextStyle(
+                              color: Colors.grey.shade700
+                          ),
+                        ),
+
+                      ],
+                    ),
+
+                  ),
+                  PopupMenuItem(
+                    child: Row(
+                      children: <Widget> [
+                        Icon(
+                            Icons.add_to_home_screen_sharp,
+                            color: Colors.grey.shade700
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Add shortcut to home screen",
+                          style: TextStyle(
+                              color: Colors.grey.shade700
+                          ),
+                        ),
+
+                      ],
+                    ),
+
+                  ),
+                  PopupMenuItem(
+                    child: Row(
+                      children: <Widget> [
+                        Icon(
+                            Icons.crop_3_2,
+                            color: Colors.grey.shade700
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Change theme",
+                          style: TextStyle(
+                              color: Colors.grey.shade700
+                          ),
+                        ),
+
+                      ],
+                    ),
+
+                  ),
+
+
+
+                ]
             )
           ],
         ),
