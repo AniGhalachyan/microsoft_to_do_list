@@ -16,10 +16,8 @@ class Planned extends StatefulWidget {
 class _PlannedState extends State<Planned> {
   DateTime now = DateTime.now();
 
-
-
   void _startAddNewTasks(BuildContext ctx) {
-    showCupertinoModalPopup(
+    showModalBottomSheet(
       context: ctx,
       builder: (_) {
         return GestureDetector(
@@ -30,6 +28,8 @@ class _PlannedState extends State<Planned> {
       },
     );
   }
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -238,7 +238,7 @@ class _PlannedState extends State<Planned> {
                                   ),
                                 ),
                                 Text(
-                                  DateFormat().add_EEEE().format(now),
+                                  DateFormat().add_E().format(now),
                                   style: TextStyle(
                                       color: Colors.grey.shade700
                                   ),

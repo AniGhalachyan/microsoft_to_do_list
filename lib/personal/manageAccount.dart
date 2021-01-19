@@ -7,7 +7,7 @@ class ManageAccount extends StatefulWidget {
 
 class _ManageAccountState extends State<ManageAccount> {
   List<String> avatarUrl=[
-    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
+    "https://html5css.ru/css/img_lights.jpg",
 
   ];
   @override
@@ -99,7 +99,7 @@ class _ManageAccountState extends State<ManageAccount> {
                             color: Colors.grey,
                           ),
                           Text(
-                              "SING OUT",
+                              "SIGN OUT",
                               style: TextStyle(
                                 color:  Colors.red,
                                 fontSize: 18,
@@ -119,6 +119,7 @@ class _ManageAccountState extends State<ManageAccount> {
                   color: Colors.grey,
                 ),
                 Container(
+                  width: 380,
                   child: Row(
                     children: <Widget> [
                       GestureDetector(
@@ -130,22 +131,29 @@ class _ManageAccountState extends State<ManageAccount> {
                           )
                           );
                         },
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.black,
-                            size: 30,
-                          ),
+                        child: Row(
+                          children: <Widget> [
+                            Container(
+                              padding: EdgeInsets.all(10),
+                              child: Icon(
+                                Icons.add,
+                                color: Colors.black,
+                                size: 30,
+                              ),
+                            ),
+                            Container(
+                              width: 300,
+                              child: Text(
+                                "Add Account",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.black
+                                ),
+                              ),
+                            )
 
-                        ),
-                      ),
-                      Text(
-                        "Add Account",
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black
-                        ),
+                          ],
+                        )
                       ),
                     ],
                   ),

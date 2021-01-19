@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 class Settings extends StatefulWidget {
   @override
@@ -6,8 +6,11 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+
+  bool _switch = false;
+
   List<String> avatarUrl=[
-    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
+    "https://html5css.ru/css/img_lights.jpg",
 
   ];
   @override
@@ -116,7 +119,7 @@ class _SettingsState extends State<Settings> {
                          color: Colors.grey,
                        ),
                        Text(
-                           "SING OUT",
+                           "SIGN OUT",
                            style: TextStyle(
                              color:  Colors.red,
                              fontSize: 18,
@@ -162,8 +165,11 @@ class _SettingsState extends State<Settings> {
                                      ]),
                                  Spacer(),
                                  Switch(
-                                     value: true,
-                                     onChanged: (bool newValue) {
+                                     value: _switch,
+                                     onChanged: (val) {
+                                       setState(() {
+                                         _switch=val;
+                                       });
                                      })
                                ]
                            )

@@ -10,7 +10,7 @@ class PersonalPage extends StatefulWidget {
 
 class _PersonalPageState extends State<PersonalPage> {
   List<String> avatarUrl=[
-    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
+    "https://html5css.ru/css/img_lights.jpg",
 
   ];
   @override
@@ -33,7 +33,7 @@ class _PersonalPageState extends State<PersonalPage> {
           children: [
            CircleAvatar(
              radius: 35,
-             // backgroundImage:NetworkImage(avatarUrl[0]) ,
+             backgroundImage:NetworkImage(avatarUrl[0]) ,
            ),
 
             Spacer(),
@@ -98,23 +98,31 @@ class _PersonalPageState extends State<PersonalPage> {
                       )
                       );
                     },
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      child: Icon(
-                        Icons.add,
-                        color: Colors.black,
-                        size: 30,
-                      ),
+                    child: Row(
+                      children: <Widget> [
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.black,
+                            size: 30,
+                          ),
+                        ),
+                        Container(
+                          width: 300,
+                          child:  Text(
+                            "Add Account",
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black
+                            ),
+                          ),
+                        )
 
-                    ),
+                      ],
+                    )
                   ),
-                   Text(
-                    "Add Account",
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.black
-                    ),
-                  )
+
                 ],
               ),
             ),
@@ -122,6 +130,7 @@ class _PersonalPageState extends State<PersonalPage> {
               height: 15,
             ),
             Container(
+              // width: 380,
               child: Row(
                 children: <Widget> [
                   GestureDetector(
@@ -133,23 +142,32 @@ class _PersonalPageState extends State<PersonalPage> {
                       )
                       );
                     },
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      child: Icon(
-                        Icons.person_outline,
-                        color: Colors.black,
-                        size: 30,
-                      ),
+                    child: Row(
+                      children: <Widget> [
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          child: Icon(
+                            Icons.person_outline,
+                            color: Colors.black,
+                            size: 30,
+                          ),
+                        ),
+                        Container(
+                          width: 300,
+                          child: Text(
+                            "Manage Account",
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black
+                            ),
+                          ),
+                        )
 
-                    ),
+                      ],
+                    )
+
                   ),
-                  Text(
-                    "Manage Account",
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.black
-                    ),
-                  ),
+
                 ],
               ),
             ),
@@ -161,6 +179,7 @@ class _PersonalPageState extends State<PersonalPage> {
               color: Colors.grey,
             ),
             Container(
+              width: 380,
               padding: EdgeInsets.only(top: 10),
               child: Row(
                 children: [
@@ -173,23 +192,31 @@ class _PersonalPageState extends State<PersonalPage> {
                       )
                       );
                     },
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      child: Icon(
-                        Icons.settings,
-                        color: Colors.black,
-                        size: 30,
-                      ),
+                    child: Row(
+                      children: <Widget> [
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          child: Icon(
+                            Icons.settings,
+                            color: Colors.black,
+                            size: 30,
+                          ),
+                        ),
+                        Container(
+                          width: 300,
+                          child: Text(
+                            "Settings",
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black
+                            ),
+                          ),
+                        )
 
-                    ),
+                      ],
+                    )
                   ),
-                  Text(
-                    "Settings",
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.black
-                    ),
-                  ),
+
                 ],
               ),
             )

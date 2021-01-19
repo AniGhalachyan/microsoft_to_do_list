@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/User/AndroidStudioProjects/microsoft_to_do_list/lib/toDoList/assigned_to_you.dart';
-import 'file:///C:/Users/User/AndroidStudioProjects/microsoft_to_do_list/lib/toDoList/important.dart';
-import 'file:///C:/Users/User/AndroidStudioProjects/microsoft_to_do_list/lib/toDoList/my_day.dart';
-import 'file:///C:/Users/User/AndroidStudioProjects/microsoft_to_do_list/lib/personal/personal_page.dart';
-import 'file:///C:/Users/User/AndroidStudioProjects/microsoft_to_do_list/lib/toDoList/planned.dart';
-import 'file:///C:/Users/User/AndroidStudioProjects/microsoft_to_do_list/lib/toDoList/tasks.dart';
+import 'package:microsoft_to_do_list/personal/personal_page.dart';
+
 import 'package:microsoft_to_do_list/search/search.dart';
+import 'package:microsoft_to_do_list/toDoList/assigned_to_you.dart';
+import 'package:microsoft_to_do_list/toDoList/important.dart';
+import 'package:microsoft_to_do_list/toDoList/my_day.dart';
+import 'package:microsoft_to_do_list/toDoList/planned.dart';
+import 'package:microsoft_to_do_list/toDoList/tasks.dart';
 
 class ToDoList extends StatefulWidget {
   @override
@@ -14,7 +15,7 @@ class ToDoList extends StatefulWidget {
 
 class _ToDoListState extends State<ToDoList> {
   List<String> avatarUrl=[
-    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
+    "https://html5css.ru/css/img_lights.jpg",
   ];
 
   @override
@@ -35,11 +36,12 @@ Widget _appBar(){
       child: Container(
         height: 50,
         padding: EdgeInsets.symmetric(horizontal: 15),
+        margin: EdgeInsets.only(top: 5),
         child: Row(
           children: <Widget> [
             CircleAvatar(
               radius: 20,
-              // backgroundImage: NetworkImage(avatarUrl[0]),
+              backgroundImage: NetworkImage(avatarUrl[0]),
             ),
             GestureDetector(
               onTap: () {
@@ -51,7 +53,10 @@ Widget _appBar(){
                 );
               },
              child: Container(
+               width: 280,
+                // color: Colors.blueAccent,
                 padding: EdgeInsets.symmetric(horizontal: 15),
+                margin: EdgeInsets.only(top: 5),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -113,7 +118,9 @@ Widget _appBar(){
           Row(
             children:<Widget> [
               Container(
+                width: 390,
                 child: GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                   onTap: (){
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context){
@@ -122,149 +129,171 @@ Widget _appBar(){
                     )
                     );
                   },
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    child: Icon(
-                      Icons.wb_sunny_outlined,
-                    ),
-                  ),
-                ),
-
-              ),
-
-              Text(
-                  "My Day",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.black
-                ),
-              )
-            ],
-          ),
-          Row(
-            children:<Widget> [
-              Container(
-                child: GestureDetector(
-                  onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context){
-                          return Important();
-                        }
-                    )
-                    );
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    child: Icon(
-                      Icons.star_border,
-                      color: Colors.red,
-                    ),
-                  ),
-                ),
-
-              ),
-              Text(
-                  "Important",
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black
-                  ),
-              )
-            ],
-          ),
-          Row(
-            children:<Widget> [
-              Container(
-                child: GestureDetector(
-                  behavior: HitTestBehavior.translucent,
-                  onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context){
-                          return Planned();
-                        }
-                    )
-                    );
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    child: Icon(
-                      Icons.calendar_today,
-                      color: Colors.green,
-                    ),
-                  ),
-                ),
-
-              ),
-              Text(
-                  "Planned",
-                style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black
-                ),
-
-              )
-            ],
-          ),
-          Row(
-            children:<Widget> [
-              Container(
-                child: GestureDetector(
-                  onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context){
-                          return AssignedToYou();
-                        }
-                    )
-                    );
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    child: Icon(
-                      Icons.person_outline,
-                      color: Colors.green,
-                    ),
-                  ),
-                ),
-
-              ),
-              Text(
-                  "Assigned To You",
-                style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black
-                ),
-
-              )
-            ],
-          ),
-          Row(
-            children:<Widget> [
-              Container(
-                child: GestureDetector(
-                  onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context){
-                          return Tasks();
-                        }
-                    )
-                    );
-                  },
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      child: Icon(
-                        Icons.home_outlined,
+                  child: Row(
+                    children: <Widget> [
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        child: Icon(
+                          Icons.wb_sunny_outlined,
+                        ),
                       ),
-                    ),
-                  ),
-
-                ),
-                Text(
-                    "Tasks",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black
-                  ),
+                      Text(
+                        "My Day",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black
+                        ),
+                      )
+                    ],
+                  )
                 )
+              )
+            ],
+          ),
+          Row(
+            children:<Widget> [
+              Container(
+                  width: 390,
+                  child: GestureDetector(
+                      behavior: HitTestBehavior.translucent,
+                      onTap: (){
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context){
+                              return Important();
+                            }
+                        )
+                        );
+                      },
+                      child: Row(
+                        children: <Widget> [
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            child: Icon(
+                              Icons.star_border,
+                                color: Colors.red
+                            ),
+                          ),
+                          Text(
+                            "Important",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black
+                            ),
+                          )
+                        ],
+                      )
+                  )
+              )
+            ],
+          ),
+          Row(
+            children:<Widget> [
+              Container(
+                  width: 390,
+                  child: GestureDetector(
+                      behavior: HitTestBehavior.translucent,
+                      onTap: (){
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context){
+                              return Planned();
+                            }
+                        )
+                        );
+                      },
+                      child: Row(
+                        children: <Widget> [
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            child: Icon(
+                              Icons.calendar_today_outlined,
+                              color: Colors.green,
+                            ),
+                          ),
+                          Text(
+                            "Planned",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black
+                            ),
+                          )
+                        ],
+                      )
+                  )
+              )
+            ],
+          ),
+          Row(
+            children:<Widget> [
+              Container(
+                  width: 390,
+
+                  child: GestureDetector(
+                      behavior: HitTestBehavior.translucent,
+                      onTap: (){
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context){
+                              return AssignedToYou();
+                            }
+                        )
+                        );
+                      },
+                      child: Row(
+                        children: <Widget> [
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            child: Icon(
+                              Icons.person_outline,
+                              color: Colors.green,
+                            ),
+                          ),
+                          Text(
+                            "Assigned to you",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black
+                            ),
+                          )
+                        ],
+                      )
+                  )
+              )
+            ],
+          ),
+          Row(
+            children:<Widget> [
+              Container(
+                  width: 390,
+
+                  child: GestureDetector(
+                      behavior: HitTestBehavior.translucent,
+                      onTap: (){
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context){
+                              return Tasks();
+                            }
+                        )
+                        );
+                      },
+                      child: Row(
+                        children: <Widget> [
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            child: Icon(
+                              Icons.home_outlined,
+                              color: Colors.blueAccent,
+                            ),
+                          ),
+                          Text(
+                            "Tasks",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black
+                            ),
+                          )
+                        ],
+                      )
+                  )
+              )
             ],
           ),
         ],
@@ -278,31 +307,33 @@ Widget _bottomNavigationBar(){
   return   Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Row(
-            children: <Widget>[
-              Container(
-                  margin: EdgeInsets.only(right: 10),
-                  child: IconButton(
-                    onPressed: ((){}),
-                      icon: Icon(
-                        Icons.add,
-                        color: Color.fromRGBO(81, 81, 189, 1),
-                        size: 30,
-                      ),
-                  ),
+              FlatButton(
+                  onPressed: (){},
+                     child: Row(
+                        children:<Widget> [
+                                Container(
+                               margin: EdgeInsets.only(right: 10),
+                                child:  Icon(
+                                    Icons.add,
+                                       color: Color.fromRGBO(81, 81, 189, 1),
+                                        size: 30,
+                              ),
+                          ),
+
+                       Text(
+                        "New list",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromRGBO(81, 81, 189, 1)
+                        ),
+                       ),
+                     ],
+                  )
+
               ),
-              Text(
-                  "New list",
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromRGBO(81, 81, 189, 1)
-                  ),
-              ),
-            ]
-        ),
-        IconButton(
-            icon: Icon(
+          IconButton(
+             icon: Icon(
                 Icons.add_to_photos,
               color: Color.fromRGBO(81, 81, 189, 1),
               size: 30,

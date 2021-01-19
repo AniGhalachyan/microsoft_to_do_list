@@ -103,7 +103,7 @@ class _SinglePageTasksState extends State<SinglePageTasks> {
 
                             ),
                                   Container(
-                                    padding: EdgeInsets.only(left: 10),
+                                    padding: EdgeInsets.only(left: 10, top: 8),
                                     child: Text(
                                       "Add step",
                                       style: TextStyle(

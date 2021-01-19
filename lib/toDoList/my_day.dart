@@ -50,7 +50,6 @@ class _MyDayState extends State<MyDay> {
   }
      Widget _body(){
     return Container(
-
         child: Stack(
           alignment: Alignment.topLeft,
             children: <Widget> [
@@ -184,71 +183,74 @@ class _MyDayState extends State<MyDay> {
 
                Padding(
                  padding: EdgeInsets.all(8),
-                 child: Container(
-                   decoration: BoxDecoration(
-                     borderRadius: BorderRadius.circular(10),
-                     color: Colors.white,
-                   ),
-                   height: 60,
+                 child:  Container(
+                     decoration: BoxDecoration(
+                       borderRadius: BorderRadius.circular(10),
+                       color: Colors.white
+                     ),
+                     height: 60,
                      padding: EdgeInsets.symmetric(horizontal: 15),
                      margin: EdgeInsets.only(top: 150),
-                     child: Row(
+                     child: Row (
                        mainAxisAlignment: MainAxisAlignment.start,
-                       children: <Widget>[
+                       children: <Widget> [
                          GestureDetector(
-                           onTap: (){
-                             Navigator.of(context).push(MaterialPageRoute(
-                                 builder: (context){
-                                   return SinglePageTasks();
-                                 }
-
-                             ));
-                           },
-                           child: Icon(
-                               Icons.fiber_manual_record_outlined,
-                               size: 30,
-                               color: Colors.grey.shade500
-                           ),
+                             behavior: HitTestBehavior.translucent,
+                             onTap: (){
+                               Navigator.of(context).push(MaterialPageRoute(
+                                   builder: (context){
+                                     return SinglePageTasks();
+                                   }
+                               )
+                               );
+                             },
+                             child: Row(
+                               children: <Widget> [
+                                 Icon(
+                                     Icons.fiber_manual_record_outlined,
+                                     size: 30,
+                                     color: Colors.grey.shade500
+                                 ),
+                                 Container(
+                                   width: 280,
+                                   margin: EdgeInsets.only(top: 7),
+                                   padding: EdgeInsets.only(left: 10),
+                                   child:   Column(
+                                     mainAxisAlignment: MainAxisAlignment.start,
+                                     crossAxisAlignment: CrossAxisAlignment.start,
+                                     children: <Widget> [
+                                       Text(
+                                           "My Day",
+                                           style: TextStyle(
+                                               fontSize: 20,
+                                               fontWeight: FontWeight.w600,
+                                               color: Colors.black
+                                           )
+                                       ),
+                                       Text(
+                                           "Tasks",
+                                           style: TextStyle(
+                                               fontSize: 15,
+                                               fontWeight: FontWeight.w600,
+                                               color: Colors.grey.shade500
+                                           )
+                                       ),
+                                     ],
+                                   ),
+                                 ),
+                               ],
+                             )
                          ),
-
-
-
-                          Container(
-                            margin: EdgeInsets.only(top: 7),
-                            padding: EdgeInsets.only(left: 10),
-                            child:   Column(
-
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget> [
-                                Text(
-                                    "My Day",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.black
-                                    )
-                                ),
-                                Text(
-                                    "Tasks",
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.grey.shade500
-                                    )
-                                ),
-                              ],
-                            ),
-                          ),
                          Spacer(),
                          IconButton(
                              icon: Icon(Icons.star_border,
-                                 size: 25, ),
+                               size: 25, ),
                              onPressed: () {}),
                        ],
-                     ),
+                       )
 
-                 ) ,
+                 ),
+
 
                ),
               Container(
@@ -263,29 +265,37 @@ class _MyDayState extends State<MyDay> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.only(left: 5),
-                      child:IconButton(
-                        onPressed: (){
+                    FlatButton(
+                        child: Row(
+                            children: <Widget>[
+                              Container(
+                                // margin: EdgeInsets.only(left: 20, top: 10),
+                                // padding: EdgeInsets.only(left: 20),
+                                child: Icon(
+                                  Icons.lightbulb_outline,
+                                  color:Colors.white,
+                                  size: 25,
+                                ),
+
+                              ),
+                              Container(
+
+                                padding: EdgeInsets.only(left: 5),
+                                child: Text(
+                                  "Suggestion",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18
+                                  ),
+                                ),
+                              ),
+
+                            ]
+                        ),
+                        onPressed: () {
                           _suggestion(context);
-                        },
-                        icon: Icon(
-                          Icons.lightbulb_outline,
-                          size: 25,
-                          color: Colors.white,
-                        ),
-                      ) ,
+                        }
                     ),
-                      Container(
-                        child:  Text(
-                          "Suggestions",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15
-                          ),
-                        ),
-                      ),
                   ],
                 ),
 

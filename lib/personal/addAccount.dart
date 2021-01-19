@@ -81,7 +81,7 @@ class _AddAccountState extends State<AddAccount> {
                       TextField(
                           textAlign: TextAlign.start,
                           autofocus: true,
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                             contentPadding: EdgeInsets.only(left: 25),
                             hintText: "Email or phone number",
