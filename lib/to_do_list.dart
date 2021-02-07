@@ -9,11 +9,32 @@ import 'package:microsoft_to_do_list/toDoList/planned.dart';
 import 'package:microsoft_to_do_list/toDoList/tasks.dart';
 
 class ToDoList extends StatefulWidget {
+
   @override
   _ToDoListState createState() => _ToDoListState();
 }
 
 class _ToDoListState extends State<ToDoList> {
+  Widget _buildToDoList (String title, IconData icon, Color color){
+    return Row(
+           children: <Widget> [
+                Container(
+                 padding: EdgeInsets.all(10),
+                   child: Icon(
+                    icon,
+                     color: color,
+                     ),
+                  ),
+                    Text(
+                       title,
+                         style: TextStyle(
+                         fontSize: 20,
+                          color: Colors.black
+                       ),
+                     )
+                 ],
+               );
+  }
   List<String> avatarUrl=[
     "https://html5css.ru/css/img_lights.jpg",
   ];
@@ -129,24 +150,9 @@ Widget _appBar(){
                     )
                     );
                   },
-                  child: Row(
-                    children: <Widget> [
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        child: Icon(
-                          Icons.wb_sunny_outlined,
-                        ),
-                      ),
-                      Text(
-                        "My Day",
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.black
-                        ),
-                      )
-                    ],
-                  )
+                    child: _buildToDoList( "My day", Icons.wb_sunny_outlined, Colors.black54)
                 )
+
               )
             ],
           ),
@@ -164,24 +170,7 @@ Widget _appBar(){
                         )
                         );
                       },
-                      child: Row(
-                        children: <Widget> [
-                          Container(
-                            padding: EdgeInsets.all(10),
-                            child: Icon(
-                              Icons.star_border,
-                                color: Colors.red
-                            ),
-                          ),
-                          Text(
-                            "Important",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black
-                            ),
-                          )
-                        ],
-                      )
+                      child: _buildToDoList("Important", Icons.star_border, Colors.red)
                   )
               )
             ],
@@ -200,24 +189,7 @@ Widget _appBar(){
                         )
                         );
                       },
-                      child: Row(
-                        children: <Widget> [
-                          Container(
-                            padding: EdgeInsets.all(10),
-                            child: Icon(
-                              Icons.calendar_today_outlined,
-                              color: Colors.green,
-                            ),
-                          ),
-                          Text(
-                            "Planned",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black
-                            ),
-                          )
-                        ],
-                      )
+                      child: _buildToDoList("Planned", Icons.calendar_today_outlined, Colors.green.shade700)
                   )
               )
             ],
@@ -237,24 +209,7 @@ Widget _appBar(){
                         )
                         );
                       },
-                      child: Row(
-                        children: <Widget> [
-                          Container(
-                            padding: EdgeInsets.all(10),
-                            child: Icon(
-                              Icons.person_outline,
-                              color: Colors.green,
-                            ),
-                          ),
-                          Text(
-                            "Assigned to you",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black
-                            ),
-                          )
-                        ],
-                      )
+                      child: _buildToDoList("Assigned to you ", Icons.person_outline, Colors.green.shade900)
                   )
               )
             ],
@@ -274,24 +229,7 @@ Widget _appBar(){
                         )
                         );
                       },
-                      child: Row(
-                        children: <Widget> [
-                          Container(
-                            padding: EdgeInsets.all(10),
-                            child: Icon(
-                              Icons.home_outlined,
-                              color: Colors.blueAccent,
-                            ),
-                          ),
-                          Text(
-                            "Tasks",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black
-                            ),
-                          )
-                        ],
-                      )
+                      child: _buildToDoList("Tasks", Icons.home_outlined, Colors.blueGrey)
                   )
               )
             ],

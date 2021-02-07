@@ -6,6 +6,31 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  Widget _buildSettingItems(IconData icon,  String title){
+    return Row(
+      children: <Widget> [
+        Container(
+
+          child: Icon(
+            icon,
+            color: Colors.blueAccent.shade700,
+
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.only(left: 30),
+          child:  Text(
+            title,
+            style: TextStyle(
+                fontSize: 20,
+                color: Colors.black
+            ),
+          ),
+        )
+
+      ],
+    );
+  }
 
   bool _switch = false;
 
@@ -152,9 +177,6 @@ class _SettingsState extends State<Settings> {
                         Container(
                            child: Row(
                                children: <Widget>[
-                                 Row(
-                                     children: <Widget>[
-
                                        Text(
                                            "Add new tasks on top",
                                            style: TextStyle(
@@ -162,7 +184,6 @@ class _SettingsState extends State<Settings> {
                                              fontSize: 18
                                            )
                                        ),
-                                     ]),
                                  Spacer(),
                                  Switch(
                                      value: _switch,
@@ -180,8 +201,6 @@ class _SettingsState extends State<Settings> {
                    Container(
                        child: Row(
                            children: <Widget>[
-                             Row(
-                                 children: <Widget>[
                                    Text(
                                        "Move starred tasks to top",
                                        style: TextStyle(
@@ -189,31 +208,7 @@ class _SettingsState extends State<Settings> {
                                            fontSize: 18
                                        )
                                    ),
-                                 ]),
-                             Spacer(),
-                             Switch(
-                                 value: false,
-                                 onChanged: (bool newValue) {
-                                 })
-                           ]
-                       )
-                   ),
-                   SizedBox(
-                     height: 10,
-                   ),
-                   Container(
-                       child: Row(
-                           children: <Widget>[
-                             Row(
-                                 children: <Widget>[
-                                   Text(
-                                       "Play completion sound",
-                                       style: TextStyle(
-                                           color: Colors.black,
-                                           fontSize: 18
-                                       )
-                                   ),
-                                 ]),
+
                              Spacer(),
                              Switch(
                                  value: true,
@@ -228,16 +223,35 @@ class _SettingsState extends State<Settings> {
                    Container(
                        child: Row(
                            children: <Widget>[
-                             Row(
-                                 children: <Widget>[
                                    Text(
-                                       "Confirm before deleting",
+                                       "Play completion sound",
                                        style: TextStyle(
                                            color: Colors.black,
                                            fontSize: 18
                                        )
                                    ),
-                                 ]),
+                             Spacer(),
+                             Switch(
+                                 value: true,
+                                 onChanged: (bool newValue) {
+                                 }
+                                 )
+                           ]
+                       )
+                   ),
+                   SizedBox(
+                     height: 10,
+                   ),
+                   Container(
+                       child: Row(
+                           children: <Widget>[
+                                   Text(
+                                       "Confirm before deleting",
+                                       style: TextStyle(
+                                           color: Colors.black,
+                                           fontSize: 18
+                                       ),
+                                   ),
                              Spacer(),
                              Switch(
                                  value: true,
@@ -283,7 +297,6 @@ class _SettingsState extends State<Settings> {
                thickness: 1.5,
              ),
              Container(
-
                child: Column(
                  mainAxisAlignment: MainAxisAlignment.start,
                  crossAxisAlignment: CrossAxisAlignment.start,
@@ -297,26 +310,11 @@ class _SettingsState extends State<Settings> {
                  ),
                  ),
                  Container(
-
                   child: Row(
                    children:<Widget> [
                      Container(
-                         child: Icon(
-                           Icons.all_inclusive,
-                           color: Colors.blueAccent
-                         ),
+                         child: _buildSettingItems(Icons.all_inclusive, "All")
                        ),
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        child: Text(
-                          "All",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black
-                          ),
-                        ),
-                      ),
-
                    Spacer(),
                    Switch(
                        value: false,
@@ -330,23 +328,8 @@ class _SettingsState extends State<Settings> {
                  child: Row(
                    children:<Widget> [
                    Container(
-
-                     child: Icon(
-                         Icons.star_border,
-                         color: Colors.blueAccent
-                     ),
+                     child: _buildSettingItems( Icons.star_border, "Important")
                    ),
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      child:Text(
-                        "Important",
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.black
-                        ),
-                      ),
-                    ),
-
                    Spacer(),
                    Switch(
                        value: true,
@@ -360,22 +343,8 @@ class _SettingsState extends State<Settings> {
                    child: Row(
                      children:<Widget> [
                        Container(
-                         child: Icon(
-                             Icons.calendar_today_outlined,
-                             color: Colors.blueAccent
-                         ),
+                         child: _buildSettingItems(Icons.calendar_today_outlined, "Planned")
                    ),
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        child:Text(
-                          "Planned",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black
-                          ),
-                        ),
-                      ),
-
                      Spacer(),
                       Switch(
                        value: true,
@@ -389,22 +358,8 @@ class _SettingsState extends State<Settings> {
                   child: Row(
                   children:<Widget> [
                    Container(
-                     child: Icon(
-                         Icons.person_outline,
-                         color: Colors.blueAccent
-                     ),
+                     child: _buildSettingItems(  Icons.person_outline, "Assigned to you")
                    ),
-                   Container(
-                     padding: EdgeInsets.all(10),
-                     child:  Text(
-                       "Assigned to you",
-                       style: TextStyle(
-                           fontSize: 20,
-                           color: Colors.black
-                       ),
-                     ),
-                   ),
-
                    Spacer(),
                    Switch(
                        value: true,
@@ -418,22 +373,8 @@ class _SettingsState extends State<Settings> {
                     child: Row(
                     children:<Widget> [
                      Container(
-                      child: Icon(
-                         Icons.check_circle_outline,
-                         color: Colors.blueAccent
-                     ),
+                      child: _buildSettingItems( Icons.check_circle_outline, "Completed")
                    ),
-                       Container(
-                         padding: EdgeInsets.all(10),
-                         child:  Text(
-                           "Completed",
-                           style: TextStyle(
-                               fontSize: 20,
-                               color: Colors.black
-                           ),
-                         ),
-                       ),
-
                          Spacer(),
                          Switch(
                        value: true,

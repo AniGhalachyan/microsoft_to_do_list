@@ -9,6 +9,31 @@ class PersonalPage extends StatefulWidget {
 }
 
 class _PersonalPageState extends State<PersonalPage> {
+  Widget _buildSettingItems(IconData icon,  String title){
+    return Row(
+      children: <Widget> [
+        Container(
+          padding: EdgeInsets.all(10),
+          child: Icon(
+            icon,
+            color: Colors.black,
+            size: 30,
+          ),
+        ),
+        Container(
+          width: 300,
+          child:  Text(
+           title,
+            style: TextStyle(
+                fontSize: 18,
+                color: Colors.black
+            ),
+          ),
+        )
+
+      ],
+    );
+  }
   List<String> avatarUrl=[
     "https://html5css.ru/css/img_lights.jpg",
 
@@ -98,29 +123,7 @@ class _PersonalPageState extends State<PersonalPage> {
                       )
                       );
                     },
-                    child: Row(
-                      children: <Widget> [
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.black,
-                            size: 30,
-                          ),
-                        ),
-                        Container(
-                          width: 300,
-                          child:  Text(
-                            "Add Account",
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.black
-                            ),
-                          ),
-                        )
-
-                      ],
-                    )
+                    child: _buildSettingItems(Icons.add, "Add account")
                   ),
 
                 ],
@@ -142,29 +145,7 @@ class _PersonalPageState extends State<PersonalPage> {
                       )
                       );
                     },
-                    child: Row(
-                      children: <Widget> [
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          child: Icon(
-                            Icons.person_outline,
-                            color: Colors.black,
-                            size: 30,
-                          ),
-                        ),
-                        Container(
-                          width: 300,
-                          child: Text(
-                            "Manage Account",
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.black
-                            ),
-                          ),
-                        )
-
-                      ],
-                    )
+                    child: _buildSettingItems( Icons.person_outline, "Manage accounts")
 
                   ),
 
@@ -192,29 +173,7 @@ class _PersonalPageState extends State<PersonalPage> {
                       )
                       );
                     },
-                    child: Row(
-                      children: <Widget> [
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          child: Icon(
-                            Icons.settings,
-                            color: Colors.black,
-                            size: 30,
-                          ),
-                        ),
-                        Container(
-                          width: 300,
-                          child: Text(
-                            "Settings",
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.black
-                            ),
-                          ),
-                        )
-
-                      ],
-                    )
+                    child: _buildSettingItems(Icons.settings, "Settings"),
                   ),
 
                 ],
