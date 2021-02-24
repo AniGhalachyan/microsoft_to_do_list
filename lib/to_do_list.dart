@@ -144,11 +144,9 @@ Widget _appBar(){
                     behavior: HitTestBehavior.translucent,
                   onTap: (){
                     Navigator.of(context).pushNamed(MyDay.routeName);
-
                   },
                     child: _buildToDoList( "My day", Icons.wb_sunny_outlined, Colors.black54)
                 )
-
               )
             ],
           ),
@@ -184,7 +182,6 @@ Widget _appBar(){
             children:<Widget> [
               Container(
                   width: 390,
-
                   child: GestureDetector(
                       behavior: HitTestBehavior.translucent,
                       onTap: (){
