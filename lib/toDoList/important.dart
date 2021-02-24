@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:microsoft_to_do_list/addTasks/new_tasks.dart';
+
+import '../widget/popup_menu.dart';
+import '../widget/start_new.dart';
+
+
 class Important extends StatefulWidget {
+  static const routeName= '/important';
   @override
   _ImportantState createState() => _ImportantState();
 }
 
 class _ImportantState extends State<Important> {
-  void _startAddNewTasks(BuildContext ctx) {
-    showModalBottomSheet(
-      context: ctx,
-      builder: (_) {
-        return GestureDetector(
-          onTap: () {},
-          child: NewTasks(),
-          behavior: HitTestBehavior.opaque,
-        );
-      },
-    );
-  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -59,87 +53,19 @@ class _ImportantState extends State<Important> {
                 ),
                 itemBuilder: (context)=>[
                   PopupMenuItem(
-                    child: Row(
-                      children: <Widget> [
-                        Icon(
-                            Icons.sort,
-                            color: Colors.grey.shade700
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Sort by ",
-                          style: TextStyle(
-                              color: Colors.grey.shade700
-                          ),
-                        ),
-
-                      ],
-                    ),
+                    child: popupMane(Icons.sort,"Sort")
 
                   ),
                   PopupMenuItem(
-                    child: Row(
-                      children: <Widget> [
-                        Icon(
-                            Icons.add_to_home_screen_sharp,
-                            color: Colors.grey.shade700
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Add shortcut to home screen",
-                          style: TextStyle(
-                              color: Colors.grey.shade700
-                          ),
-                        ),
-
-                      ],
-                    ),
+                    child: popupMane(Icons.add_to_home_screen, "Add shortcut to homescreen ")
 
                   ),
                   PopupMenuItem(
-                    child: Row(
-                      children: <Widget> [
-                        Icon(
-                            Icons.crop_3_2,
-                            color: Colors.grey.shade700
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Change theme",
-                          style: TextStyle(
-                              color: Colors.grey.shade700
-                          ),
-                        ),
-
-                      ],
-                    ),
+                    child: popupMane(Icons.crop_3_2, "Change theme")
 
                   ),
                   PopupMenuItem(
-                    child: Row(
-                      children: <Widget> [
-                        Icon(
-                          Icons.check_circle_outline,
-                          color: Colors.grey.shade700,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Hide completed tasks",
-                          style: TextStyle(
-                              color: Colors.grey.shade700
-                          ),
-                        ),
-
-                      ],
-                    ),
+                    child: popupMane(Icons.check_circle_outline, "Show completed tasks")
 
                   ),
 
@@ -210,7 +136,7 @@ class _ImportantState extends State<Important> {
     return FloatingActionButton(
       backgroundColor: Color.fromRGBO(173,57,94,1),
       onPressed: (){
-        _startAddNewTasks(context);
+        startAddNewTasks(context);
       },
       child: Icon(
         Icons.add,

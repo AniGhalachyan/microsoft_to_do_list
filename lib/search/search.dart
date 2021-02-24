@@ -42,8 +42,8 @@ class _SearchPageState extends State<SearchPage> {
               Expanded(
                   child: TextField(
                     textAlign: TextAlign.start,
-                      // autofocus: true,
-                      style: TextStyle(color: Colors.white),
+                      autofocus: true,
+                      style: TextStyle(color: Colors.black),
                       decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Search',

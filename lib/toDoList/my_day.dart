@@ -1,28 +1,20 @@
+
 import 'package:flutter/material.dart';
-import 'package:microsoft_to_do_list/addTasks/new_tasks.dart';
-import 'package:microsoft_to_do_list/suggestion/suggestions.dart';
-import 'package:microsoft_to_do_list/toDoList/singlePage/singlePageOfMyDay.dart';
 import 'package:intl/intl.dart';
 
+import '../suggestion/suggestions.dart';
+import '../toDoList/singlePage/singlePageOfMyDay.dart';
+import '../widget/popup_menu.dart';
+import '../widget/start_new.dart';
+
 class MyDay extends StatefulWidget {
+  static const routeName= '/myDay';
   @override
   _MyDayState createState() => _MyDayState();
 }
 
 class _MyDayState extends State<MyDay> {
 
-  void _startAddNewTasks(BuildContext ctx) {
-    showModalBottomSheet(
-      context: ctx,
-      builder: (_) {
-        return GestureDetector(
-          onTap: () {},
-          child: NewTasks(),
-          behavior: HitTestBehavior.opaque,
-        );
-      },
-    );
-  }
   void _suggestion(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx,
@@ -87,71 +79,15 @@ class _MyDayState extends State<MyDay> {
                         ),
                         itemBuilder: (context)=>[
                           PopupMenuItem(
-                            child: Row(
-                              children: <Widget> [
-                                Icon(
-                                    Icons.sort,
-                                    color: Colors.grey.shade700
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  "Sort by ",
-                                  style: TextStyle(
-                                      color: Colors.grey.shade700
-                                  ),
-                                ),
-
-                              ],
-                            ),
+                            child: popupMane(Icons.sort,"Sort")
+                          ),
+                          PopupMenuItem(
+                            child: popupMane(Icons.add_to_home_screen, "Add shortcut to homescreen ")
 
                           ),
                           PopupMenuItem(
-                            child: Row(
-                              children: <Widget> [
-                                Icon(
-                                    Icons.add_to_home_screen_sharp,
-                                    color: Colors.grey.shade700
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  "Add shortcut to home screen",
-                                  style: TextStyle(
-                                      color: Colors.grey.shade700
-                                  ),
-                                ),
-
-                              ],
-                            ),
-
+                            child: popupMane(Icons.crop_3_2, "Change theme")
                           ),
-                          PopupMenuItem(
-                            child: Row(
-                              children: <Widget> [
-                                Icon(
-                                    Icons.crop_3_2,
-                                    color: Colors.grey.shade700
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  "Change theme",
-                                  style: TextStyle(
-                                      color: Colors.grey.shade700
-                                  ),
-                                ),
-
-                              ],
-                            ),
-
-                          ),
-
-
-
                         ]
                     )
                   ],
@@ -254,7 +190,6 @@ class _MyDayState extends State<MyDay> {
 
                ),
               Container(
-                // padding: EdgeInsets.only(left: 50),
                 margin: EdgeInsets.only(top: 680, left: 140),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(60),
@@ -263,23 +198,20 @@ class _MyDayState extends State<MyDay> {
                 height: 40,
                 width: 160,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+
                   children: <Widget>[
                     FlatButton(
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
                               Container(
-                                // margin: EdgeInsets.only(left: 20, top: 10),
-                                // padding: EdgeInsets.only(left: 20),
                                 child: Icon(
                                   Icons.lightbulb_outline,
                                   color:Colors.white,
                                   size: 25,
                                 ),
-
                               ),
                               Container(
-
                                 padding: EdgeInsets.only(left: 5),
                                 child: Text(
                                   "Suggestion",
@@ -313,7 +245,7 @@ class _MyDayState extends State<MyDay> {
     return FloatingActionButton(
       backgroundColor: Color.fromRGBO(140,51,52,1),
       onPressed: () {
-        _startAddNewTasks(context);
+        startAddNewTasks(context);
       },
       child: Icon(
           Icons.add,

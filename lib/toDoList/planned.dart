@@ -1,12 +1,13 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:microsoft_to_do_list/addTasks/new_tasks.dart';
 import 'package:intl/intl.dart';
+import '../addTasks/new_tasks.dart';
+import '../widget/popup_menu.dart';
 
 
 
 class Planned extends StatefulWidget {
-
+    static const routeName='/planned';
 
 
   @override
@@ -15,7 +16,6 @@ class Planned extends StatefulWidget {
 
 class _PlannedState extends State<Planned> {
   DateTime now = DateTime.now();
-
   void _startAddNewTasks(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx,
@@ -69,94 +69,19 @@ class _PlannedState extends State<Planned> {
                   Icons.more_vert,
                   color: Color.fromRGBO(23,111,107,1),
                 ),
-
                 itemBuilder: (context)=>[
                   PopupMenuItem(
-                    child: Row(
-                      children: <Widget> [
-                        Icon(
-                          Icons.group,
-                            color: Colors.grey.shade700
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                            "Group by ",
-                          style: TextStyle(
-                              color: Colors.grey.shade700
-                          ),
-                        ),
-
-                      ],
-                    ),
-
+                    child: popupMane(Icons.group, "Group by")
                   ),
                   PopupMenuItem(
-                    child: Row(
-                      children: <Widget> [
-                        Icon(
-                          Icons.add_to_home_screen_sharp,
-                            color: Colors.grey.shade700
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                            "Add shortcut to home screen",
-                          style: TextStyle(
-                              color: Colors.grey.shade700
-                          ),
-                        ),
-
-                      ],
-                    ),
-
+                    child: popupMane(Icons.add_to_home_screen, "Add shortcut to homescreen ")
                   ),
                   PopupMenuItem(
-                    child: Row(
-                      children: <Widget> [
-                        Icon(
-                          Icons.crop_3_2,
-                            color: Colors.grey.shade700
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                            "Change theme",
-                          style: TextStyle(
-                              color: Colors.grey.shade700
-                          ),
-                        ),
-
-                      ],
-                    ),
-
+                    child: popupMane(Icons.crop_3_2, "Change theme")
                   ),
                   PopupMenuItem(
-                    child: Row(
-                      children: <Widget> [
-                        Icon(
-                          Icons.check_circle_outline,
-                            color: Colors.grey.shade700,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                            "Hide completed tasks",
-                          style: TextStyle(
-                            color: Colors.grey.shade700
-                          ),
-                        ),
-
-                      ],
-                    ),
-
+                    child: popupMane(Icons.check_circle_outline, "Hide completed tasks")
                   ),
-
-
                 ]
             )
           ],
@@ -190,9 +115,7 @@ class _PlannedState extends State<Planned> {
           Row(
             children: <Widget> [
               Container(
-
                child: Column(
-
                   children:<Widget> [
                     PopupMenuButton(
                       icon: Icon(
@@ -201,137 +124,32 @@ class _PlannedState extends State<Planned> {
                       ),
                         itemBuilder: (context)=>[
                           PopupMenuItem(
-                            child: Row(
-                              children: <Widget> [
-                                Icon(
-                                  Icons.assignment_return_outlined,
-                                    color: Colors.grey.shade700
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                    "Overdue",
-                                  style: TextStyle(
-                                      color: Colors.grey.shade700
-                                  ),
-                                ),
-
-                              ],
-                            ),
-
+                            child: popupMane( Icons.assignment_return_outlined, "Overdue")
                           ),
                           PopupMenuItem(
                             child: Row(
                               children: <Widget> [
-                                Icon(
-                                  Icons.today,
-                                    color: Colors.grey.shade700
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                    "Today ",
-                                  style: TextStyle(
-                                      color: Colors.grey.shade700
-                                  ),
-                                ),
+                               popupMane(Icons.calendar_today, "Today"),
                                 Text(
                                   DateFormat().add_E().format(now),
                                   style: TextStyle(
                                       color: Colors.grey.shade700
                                   ),
                                 ),
-
                               ],
                             ),
-
                           ),
                           PopupMenuItem(
-                            child: Row(
-                              children: <Widget> [
-                                Icon(
-                                  Icons.calendar_today_outlined,
-                                    color: Colors.grey.shade700
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                    "Tomorrow (Sun)",
-                                  style: TextStyle(
-                                      color: Colors.grey.shade700
-                                  ),
-                                ),
-
-                              ],
-                            ),
-
+                            child: popupMane(Icons.calendar_today_outlined, "Tomorrow (Sum)")
                           ),
                           PopupMenuItem(
-                            child: Row(
-                              children: <Widget> [
-                                Icon(
-                                  Icons.calendar_today,
-                                    color: Colors.grey.shade700
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                    "This week (9-15 Jan)",
-                                  style: TextStyle(
-                                      color: Colors.grey.shade700
-                                  ),
-                                ),
-
-                              ],
-                            ),
-
-                          ),
-
-                          PopupMenuItem(
-                            child: Row(
-                              children: <Widget> [
-                                Icon(
-                                  Icons.assignment_returned_outlined,
-                                    color: Colors.grey.shade700
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                    "Later",
-                                  style: TextStyle(
-                                      color: Colors.grey.shade700
-                                  ),
-                                ),
-
-                              ],
-                            ),
-
+                            child: popupMane(Icons.calendar_today, "This week (9-15 Jun)")
                           ),
                           PopupMenuItem(
-                            child: Row(
-                              children: <Widget> [
-                                Icon(
-                                  Icons.date_range_outlined,
-                                    color: Colors.grey.shade700
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                    "All planned",
-                                  style: TextStyle(
-                                      color: Colors.grey.shade700
-                                  ),
-                                ),
-
-                              ],
-                            ),
-
+                            child: popupMane(Icons.assignment_returned_outlined, "Later")
+                          ),
+                          PopupMenuItem(
+                            child: popupMane(Icons.date_range_outlined, "All planned")
                           ),
                         ]
                     )
@@ -339,8 +157,6 @@ class _PlannedState extends State<Planned> {
                 ),
               ),
               Container(
-                  // padding: EdgeInsets.only(left: 15, bottom: 15),
-                  // color: Color.fromRGBO(202,231,229, 1),
                   child: Text(
                     "Overdue",
                     style: TextStyle(
@@ -349,22 +165,18 @@ class _PlannedState extends State<Planned> {
                     ),
                   )
               ),
-
             ],
           ),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget> [
-
               Container(
                 height: 300,
                 width: 300,
                 child: Image.asset('lib/img/4.jpg'),
               )
             ],
-
           ),
           Container(
               padding: EdgeInsets.all(30),
@@ -377,9 +189,7 @@ class _PlannedState extends State<Planned> {
               )
           )
         ],
-
       ),
-
     );
   }
 
@@ -393,7 +203,6 @@ class _PlannedState extends State<Planned> {
         Icons.add,
         color: Colors.white,
       ),
-
     );
   }
 }

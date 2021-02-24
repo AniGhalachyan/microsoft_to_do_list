@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:microsoft_to_do_list/widget/popup_menu.dart';
 class AssignedToYou extends StatefulWidget {
+  static const routeName='/assigned';
+
   @override
   _AssignedToYouState createState() => _AssignedToYouState();
 }
 
 class _AssignedToYouState extends State<AssignedToYou> {
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -45,66 +49,15 @@ class _AssignedToYouState extends State<AssignedToYou> {
                 itemBuilder: (context)=>[
 
                   PopupMenuItem(
-                    child: Row(
-                      children: <Widget> [
-                        Icon(
-                            Icons.add_to_home_screen_sharp,
-                            color: Colors.grey.shade700
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Add shortcut to home screen",
-                          style: TextStyle(
-                              color: Colors.grey.shade700
-                          ),
-                        ),
-
-                      ],
-                    ),
+                    child: popupMane(Icons.add_to_home_screen, "Add shortcut to homescreen ")
 
                   ),
                   PopupMenuItem(
-                    child: Row(
-                      children: <Widget> [
-                        Icon(
-                            Icons.crop_3_2,
-                            color: Colors.grey.shade700
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Change theme",
-                          style: TextStyle(
-                              color: Colors.grey.shade700
-                          ),
-                        ),
-
-                      ],
-                    ),
+                    child: popupMane(Icons.crop_3_2, "Change theme")
 
                   ),
                   PopupMenuItem(
-                    child: Row(
-                      children: <Widget> [
-                        Icon(
-                          Icons.check_circle_outline,
-                          color: Colors.grey.shade700,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Hide completed tasks",
-                          style: TextStyle(
-                              color: Colors.grey.shade700
-                          ),
-                        ),
-
-                      ],
-                    ),
+                    child: popupMane(Icons.check_circle_outline, "Show completed tasks")
 
                   ),
 

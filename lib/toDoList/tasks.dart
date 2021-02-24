@@ -1,25 +1,17 @@
+
 import 'package:flutter/material.dart';
-import 'package:microsoft_to_do_list/addTasks/new_tasks.dart';
+import '../widget/popup_menu.dart';
+import '../widget/start_new.dart';
 
 class Tasks extends StatefulWidget {
+  static const routeName= '/tasks';
+
   @override
   _TasksState createState() => _TasksState();
 }
 
 class _TasksState extends State<Tasks> {
 
-  void _startAddNewTasks(BuildContext ctx) {
-    showModalBottomSheet(
-      context: ctx,
-      builder: (_) {
-        return GestureDetector(
-          onTap: () {},
-          child: NewTasks(),
-          behavior: HitTestBehavior.opaque,
-        );
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +45,6 @@ class _TasksState extends State<Tasks> {
                 ),
               ),
             ),
-
             Spacer(),
             PopupMenuButton(
                 icon: Icon(
@@ -62,71 +53,20 @@ class _TasksState extends State<Tasks> {
                 ),
                 itemBuilder: (context)=>[
                   PopupMenuItem(
-                    child: Row(
-                      children: <Widget> [
-                        Icon(
-                            Icons.sort,
-                            color: Colors.grey.shade700
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Sort by ",
-                          style: TextStyle(
-                              color: Colors.grey.shade700
-                          ),
-                        ),
-
-                      ],
-                    ),
-
+                    child: popupMane(Icons.sort, "Sort by")
                   ),
                   PopupMenuItem(
-                    child: Row(
-                      children: <Widget> [
-                        Icon(
-                            Icons.add_to_home_screen_sharp,
-                            color: Colors.grey.shade700
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Add shortcut to home screen",
-                          style: TextStyle(
-                              color: Colors.grey.shade700
-                          ),
-                        ),
-
-                      ],
-                    ),
-
+                    child: popupMane(Icons.add_to_home_screen, "Add shortcut to homescreen")
                   ),
                   PopupMenuItem(
-                    child: Row(
-                      children: <Widget> [
-                        Icon(
-                            Icons.crop_3_2,
-                            color: Colors.grey.shade700
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Change theme",
-                          style: TextStyle(
-                              color: Colors.grey.shade700
-                          ),
-                        ),
-
-                      ],
-                    ),
-
+                    child: popupMane(Icons.crop_3_2, "Change theme")
                   ),
-
-
-
+                  PopupMenuItem(
+                      child: popupMane(Icons.share, "Send a copy")
+                  ),
+                  PopupMenuItem(
+                      child: popupMane(Icons.print_outlined, "Print list")
+                  ),
                 ]
             )
           ],
@@ -147,7 +87,6 @@ class _TasksState extends State<Tasks> {
                 padding: EdgeInsets.only(left: 20),
                 child: Text(
                   "Tasks",
-                  // textAlign: TextAlign.left,
                   style: TextStyle(
                       fontSize: 35,
                       fontWeight: FontWeight.bold,
@@ -157,19 +96,16 @@ class _TasksState extends State<Tasks> {
               ),
             ],
           ),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget> [
-
               Container(
                 height: 300,
                 width: 300,
                 child: Image.asset('lib/img/1.jpg'),
               )
             ],
-
           ),
           Container(
               padding: EdgeInsets.all(30),
@@ -182,16 +118,14 @@ class _TasksState extends State<Tasks> {
               )
           )
         ],
-
       ),
-
     );
   }
   Widget _button(){
     return FloatingActionButton(
         backgroundColor: Color.fromRGBO(230,233,229,1),
       onPressed: (){
-        _startAddNewTasks(context);
+        startAddNewTasks(context);
       },
       child: Icon(
         Icons.add,

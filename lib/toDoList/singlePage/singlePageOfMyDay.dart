@@ -7,6 +7,28 @@ class SinglePageTasks extends StatefulWidget {
 }
 
 class _SinglePageTasksState extends State<SinglePageTasks> {
+  Widget _buildItems (IconData icon,String title){
+    return  FlatButton(
+        child: Row(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(right: 20),
+              child: Icon(
+                 icon,
+                  color: Colors.grey.shade800
+              ),
+            ),
+            Text(
+              title,
+              style: TextStyle(
+                  color: Colors.grey.shade800,
+                  fontSize: 17),
+            ),
+          ],
+        ),
+        onPressed: () {}
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -59,21 +81,23 @@ class _SinglePageTasksState extends State<SinglePageTasks> {
     child:Column(
        children: <Widget>[
          Container(
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            padding: EdgeInsets.only(left: 5),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
             IconButton(
                 icon: Icon(
                     Icons.fiber_manual_record_outlined,
-                    size: 35, color: Colors.black
+                    size: 35,
+                  color: Colors.grey.shade700,
                 ),
                 onPressed: () {}),
+
                  Text(
                      "My Day",
                       style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                      // fontWeight: FontWeight.w600,
                       color: Colors.black
                       )
                  ),
@@ -82,7 +106,7 @@ class _SinglePageTasksState extends State<SinglePageTasks> {
                      icon: Icon(
                          Icons.star_border,
                          size: 35,
-                         color: Colors.black
+                         color: Colors.grey.shade700,
                      ),
                      onPressed: () {}),
                   ],
@@ -93,17 +117,17 @@ class _SinglePageTasksState extends State<SinglePageTasks> {
                       child: Row(
                           children: <Widget>[
                             Container(
-                              margin: EdgeInsets.only(left: 20, top: 10),
-                                 padding: EdgeInsets.only(left: 20),
+                              margin: EdgeInsets.only( top: 14),
+                                 padding: EdgeInsets.only(left: 5),
                                  child: Icon(
                                      Icons.add,
                                      color:Colors.blueAccent,
-                                     size: 20,
+                                     size: 25,
                                  ),
 
                             ),
                                   Container(
-                                    padding: EdgeInsets.only(left: 10, top: 8),
+                                    padding: EdgeInsets.only(left: 15, top: 11),
                                     child: Text(
                                       "Add step",
                                       style: TextStyle(
@@ -156,76 +180,17 @@ class _SinglePageTasksState extends State<SinglePageTasks> {
                               color: Colors.white,
                               child: Column(
                                   children: <Widget>[
-                                     FlatButton(
-                                        child: Row(
-                                            children: <Widget>[
-                                              Container(
-                                               margin: EdgeInsets.only(right: 20),
-                                                 child: Icon(
-                                                     Icons.alarm,
-                                                     color: Colors.grey.shade800
-                                                 ),
-                                              ),
-                                                Text(
-                                                  "Remind me",
-                                                     style: TextStyle(
-                                                         color: Colors.grey.shade800,
-                                                         fontSize: 17),
-                                                ),
-                                          ],
-                                        ),
-                                      onPressed: () {}
-                                      ),
+                                     _buildItems(Icons.alarm, "Remind My Day"),
                                    Divider(
                                        color: Colors.grey.shade500,
                                        indent: 55
                                    ),
-                                    FlatButton(
-                                         child: Row(
-                                             children: <Widget>[
-                                             Container(
-                                               margin: EdgeInsets.only(right: 20),
-                                                 child:Icon(
-                                                     Icons.calendar_today,
-                                                     color: Colors.grey.shade800
-                                                 ),
-                                             ),
-                                                Text(
-                                                    "Add due date",
-                                                     style: TextStyle(
-                                                         color: Colors.grey.shade800,
-                                                         fontSize: 17
-                                                     ),
-                                                ),
-                                            ]
-                                         ),
-                                        onPressed: () {}
-                                        ),
+                                    _buildItems(Icons.calendar_today, "Add due date"),
                                       Divider(
                                           color: Colors.grey.shade500,
                                         indent: 55,
                                       ),
-                                 FlatButton(
-                                    child: Row(
-                                        children: <Widget>[
-                                              Container(
-                                                margin: EdgeInsets.only(right: 20),
-                                                  child: Icon(
-                                                      Icons.repeat,
-                                                      color: Colors.grey.shade800
-                                                  ),
-                                      ),
-                                        Text(
-                                            "Repeat",
-                                            style: TextStyle(
-                                                color: Colors.grey.shade800,
-                                                fontSize: 17
-                                            ),
-                                        ),
-                                    ],
-                                    ),
-                                 onPressed: () {}
-                                 ),
+                                _buildItems(Icons.repeat, "Repeat")
                               ]
                               ),
                           ),
@@ -234,26 +199,7 @@ class _SinglePageTasksState extends State<SinglePageTasks> {
                       ),
                       Card(
                         color: Colors.white,
-                           child: FlatButton(
-                             child: Row(
-                                 children: <Widget>[
-                                   Container(
-                                         margin: EdgeInsets.only(right: 20),
-                                        child: Icon(
-                                            Icons.attach_file,
-                                            color: Colors.grey
-                                        ),
-                                   ),
-                                   Text(
-                                       "Add file",
-                                        style: TextStyle(
-                                            color: Colors.grey.shade800,
-                                            fontSize: 17
-                                        ),
-                                   ),
-                               ],
-                             ),
-                           onPressed: () {}),
+                           child: _buildItems(Icons.attach_file, "Add file")
                       ),
                        SizedBox(
                          height: 10,

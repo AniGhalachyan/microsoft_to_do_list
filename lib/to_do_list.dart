@@ -9,6 +9,7 @@ import 'package:microsoft_to_do_list/toDoList/planned.dart';
 import 'package:microsoft_to_do_list/toDoList/tasks.dart';
 
 class ToDoList extends StatefulWidget {
+  
 
   @override
   _ToDoListState createState() => _ToDoListState();
@@ -75,7 +76,6 @@ Widget _appBar(){
               },
              child: Container(
                width: 280,
-                // color: Colors.blueAccent,
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 margin: EdgeInsets.only(top: 5),
                 child: Column(
@@ -143,12 +143,8 @@ Widget _appBar(){
                 child: GestureDetector(
                     behavior: HitTestBehavior.translucent,
                   onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context){
-                          return MyDay();
-                        }
-                    )
-                    );
+                    Navigator.of(context).pushNamed(MyDay.routeName);
+
                   },
                     child: _buildToDoList( "My day", Icons.wb_sunny_outlined, Colors.black54)
                 )
@@ -163,12 +159,7 @@ Widget _appBar(){
                   child: GestureDetector(
                       behavior: HitTestBehavior.translucent,
                       onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context){
-                              return Important();
-                            }
-                        )
-                        );
+                        Navigator.of(context).pushNamed(Important.routeName);
                       },
                       child: _buildToDoList("Important", Icons.star_border, Colors.red)
                   )
@@ -182,12 +173,7 @@ Widget _appBar(){
                   child: GestureDetector(
                       behavior: HitTestBehavior.translucent,
                       onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context){
-                              return Planned();
-                            }
-                        )
-                        );
+                        Navigator.of(context).pushNamed(Planned.routeName);
                       },
                       child: _buildToDoList("Planned", Icons.calendar_today_outlined, Colors.green.shade700)
                   )
@@ -202,12 +188,7 @@ Widget _appBar(){
                   child: GestureDetector(
                       behavior: HitTestBehavior.translucent,
                       onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context){
-                              return AssignedToYou();
-                            }
-                        )
-                        );
+                        Navigator.of(context).pushNamed(AssignedToYou.routeName);
                       },
                       child: _buildToDoList("Assigned to you ", Icons.person_outline, Colors.green.shade900)
                   )
@@ -218,16 +199,10 @@ Widget _appBar(){
             children:<Widget> [
               Container(
                   width: 390,
-
                   child: GestureDetector(
                       behavior: HitTestBehavior.translucent,
                       onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context){
-                              return Tasks();
-                            }
-                        )
-                        );
+                        Navigator.of(context).pushNamed(Tasks.routeName);
                       },
                       child: _buildToDoList("Tasks", Icons.home_outlined, Colors.blueGrey)
                   )
@@ -253,7 +228,7 @@ Widget _bottomNavigationBar(){
                                margin: EdgeInsets.only(right: 10),
                                 child:  Icon(
                                     Icons.add,
-                                       color: Color.fromRGBO(81, 81, 189, 1),
+                                       color: Colors.blueAccent.shade700,
                                         size: 30,
                               ),
                           ),
@@ -263,7 +238,7 @@ Widget _bottomNavigationBar(){
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromRGBO(81, 81, 189, 1)
+                            color: Colors.blueAccent.shade700
                         ),
                        ),
                      ],
@@ -273,7 +248,7 @@ Widget _bottomNavigationBar(){
           IconButton(
              icon: Icon(
                 Icons.add_to_photos,
-              color: Color.fromRGBO(81, 81, 189, 1),
+              color: Colors.blueAccent.shade700,
               size: 30,
             ),
             onPressed: (() {})

@@ -10,11 +10,9 @@ class _SettingsState extends State<Settings> {
     return Row(
       children: <Widget> [
         Container(
-
           child: Icon(
             icon,
             color: Colors.blueAccent.shade700,
-
           ),
         ),
         Container(
@@ -33,6 +31,15 @@ class _SettingsState extends State<Settings> {
   }
 
   bool _switch = false;
+  bool _switch1 = false;
+  bool _switch2 = false;
+  bool _switch3 = false;
+  bool _switch4 = false;
+  bool _switch5 = false;
+  bool _switch6 = false;
+  bool _switch7 = false;
+  bool _switch8 = false;
+
 
   List<String> avatarUrl=[
     "https://html5css.ru/css/img_lights.jpg",
@@ -211,8 +218,11 @@ class _SettingsState extends State<Settings> {
 
                              Spacer(),
                              Switch(
-                                 value: true,
-                                 onChanged: (bool newValue) {
+                                 value: _switch1,
+                                 onChanged: (val) {
+                                   setState(() {
+                                     _switch1=val;
+                                   });
                                  })
                            ]
                        )
@@ -232,8 +242,11 @@ class _SettingsState extends State<Settings> {
                                    ),
                              Spacer(),
                              Switch(
-                                 value: true,
-                                 onChanged: (bool newValue) {
+                                 value: _switch2,
+                                 onChanged: (val) {
+                                   setState(() {
+                                     _switch2=val;
+                                   });
                                  }
                                  )
                            ]
@@ -254,8 +267,9 @@ class _SettingsState extends State<Settings> {
                                    ),
                              Spacer(),
                              Switch(
-                                 value: true,
-                                 onChanged: (bool newValue) {
+                                 value: _switch3,
+                                 onChanged: (val) {
+                                   _switch3=val;
                                  })
                            ]
                        )
@@ -317,8 +331,11 @@ class _SettingsState extends State<Settings> {
                        ),
                    Spacer(),
                    Switch(
-                       value: false,
-                       onChanged: (bool newValue) {
+                       value: _switch4,
+                       onChanged: (val) {
+                         setState(() {
+                           _switch4=val;
+                         });
                        })
                  ],
                ),
@@ -332,8 +349,11 @@ class _SettingsState extends State<Settings> {
                    ),
                    Spacer(),
                    Switch(
-                       value: true,
-                       onChanged: (bool newValue) {
+                       value: _switch5,
+                       onChanged: (val) {
+                         setState(() {
+                           _switch5=val;
+                         });
                        })
                  ],
                ),
@@ -347,8 +367,11 @@ class _SettingsState extends State<Settings> {
                    ),
                      Spacer(),
                       Switch(
-                       value: true,
-                       onChanged: (bool newValue) {
+                       value: _switch6,
+                       onChanged: (val) {
+                         setState(() {
+                           _switch6=val;
+                         });
                        })
                  ],
                ),
@@ -362,8 +385,11 @@ class _SettingsState extends State<Settings> {
                    ),
                    Spacer(),
                    Switch(
-                       value: true,
-                       onChanged: (bool newValue) {
+                       value: _switch7,
+                       onChanged: (val) {
+                         setState(() {
+                           _switch7=val;
+                         });
                        })
                  ],
                ),
@@ -377,8 +403,11 @@ class _SettingsState extends State<Settings> {
                    ),
                          Spacer(),
                          Switch(
-                       value: true,
-                       onChanged: (bool newValue) {
+                       value: _switch8,
+                       onChanged: (val) {
+                         setState(() {
+                           _switch8=val;
+                         });
                        })
                  ],
                ),
