@@ -8,7 +8,6 @@ class AssignedToYou extends StatefulWidget {
 }
 
 class _AssignedToYouState extends State<AssignedToYou> {
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -39,7 +38,6 @@ class _AssignedToYouState extends State<AssignedToYou> {
                 ),
               ),
             ),
-
             Spacer(),
             PopupMenuButton(
                 icon: Icon(
@@ -47,21 +45,15 @@ class _AssignedToYouState extends State<AssignedToYou> {
                   color: Color.fromRGBO(25,105,72,1),
                 ),
                 itemBuilder: (context)=>[
-
                   PopupMenuItem(
                     child: popupMane(Icons.add_to_home_screen, "Add shortcut to homescreen ")
-
                   ),
                   PopupMenuItem(
                     child: popupMane(Icons.crop_3_2, "Change theme")
-
                   ),
                   PopupMenuItem(
                     child: popupMane(Icons.check_circle_outline, "Show completed tasks")
-
                   ),
-
-
                 ]
             )
           ],
@@ -92,19 +84,16 @@ class _AssignedToYouState extends State<AssignedToYou> {
               ),
             ],
           ),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget> [
-
               Container(
                 height: 300,
                 width: 300,
                 child: Image.asset('lib/img/3.jpg'),
               )
             ],
-
           ),
           Container(
               padding: EdgeInsets.all(30),

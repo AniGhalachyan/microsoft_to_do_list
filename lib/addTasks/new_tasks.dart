@@ -48,12 +48,8 @@ class NewTasks extends StatelessWidget {
 
            ],
          ),
-         // SizedBox(
-         //   height: 2,
-         // ),
 
          Row(
-
            children:<Widget> [
             Container(
                  padding: EdgeInsets.only(left: 15),

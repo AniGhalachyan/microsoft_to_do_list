@@ -92,7 +92,6 @@ class _SearchPageState extends State<SearchPage> {
                   radius: 100,
                 )
               ],
-
             ),
           Container(
               padding: EdgeInsets.all(30),
@@ -105,7 +104,6 @@ class _SearchPageState extends State<SearchPage> {
               )
           )
         ],
-
       ),
 
     );

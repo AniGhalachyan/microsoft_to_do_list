@@ -125,7 +125,6 @@ class _PersonalPageState extends State<PersonalPage> {
                     },
                     child: _buildSettingItems(Icons.add, "Add account")
                   ),
-
                 ],
               ),
             ),
@@ -133,7 +132,6 @@ class _PersonalPageState extends State<PersonalPage> {
               height: 15,
             ),
             Container(
-              // width: 380,
               child: Row(
                 children: <Widget> [
                   GestureDetector(
@@ -146,9 +144,7 @@ class _PersonalPageState extends State<PersonalPage> {
                       );
                     },
                     child: _buildSettingItems( Icons.person_outline, "Manage accounts")
-
                   ),
-
                 ],
               ),
             ),
@@ -175,7 +171,6 @@ class _PersonalPageState extends State<PersonalPage> {
                     },
                     child: _buildSettingItems(Icons.settings, "Settings"),
                   ),
-
                 ],
               ),
             )
@@ -184,5 +179,4 @@ class _PersonalPageState extends State<PersonalPage> {
       ),
     );
  }
-
 }

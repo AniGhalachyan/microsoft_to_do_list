@@ -16,9 +16,7 @@ Widget popupMane (IconData icon, String title){
             color: Colors.grey.shade700
         ),
       ),
-
     ],
-
 
   );
 }

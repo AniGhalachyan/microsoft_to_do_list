@@ -46,7 +46,6 @@ class _AddAccountState extends State<AddAccount> {
                 ),
               ),
             ),
-
           ],
         ),
       ),
@@ -76,7 +75,7 @@ class _AddAccountState extends State<AddAccount> {
                   borderRadius: BorderRadius.zero,
                   child:Column  (
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    // crossAxisAlignment: CrossAxisAlignment.s,
+
                     children: <Widget> [
                       TextField(
                           textAlign: TextAlign.start,
@@ -93,12 +92,9 @@ class _AddAccountState extends State<AddAccount> {
                             ),
                         ),
                           )
-
                     ],
-
                   ) ,
                 ),
-
           ),
          SizedBox(
         height: 10,
@@ -111,7 +107,6 @@ class _AddAccountState extends State<AddAccount> {
                width: 300,
                child:Column  (
                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                 // crossAxisAlignment: CrossAxisAlignment.s,
                  children: <Widget> [
                    Text(
                      "Sign in ",
@@ -127,14 +122,11 @@ class _AddAccountState extends State<AddAccount> {
           SizedBox(
             height: 10,
           ),
-
             Container(
-
               height: 50,
               width: 300,
               child:Column  (
                 mainAxisAlignment: MainAxisAlignment.start,
-                // crossAxisAlignment: CrossAxisAlignment.s,
                 children: <Widget> [
                   Text(
                     "Sign in with a work, school, or Microsoft account",
@@ -163,5 +155,4 @@ class _AddAccountState extends State<AddAccount> {
       ),
     );
   }
-
 }
